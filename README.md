@@ -1,38 +1,31 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# Shatez backend interview: About this project 📚🙋
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a boilerplate backend project intended to have feature based task lists for Shatez backend interviews. It is built with NestJs & TypeScript.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+It is not integrated with a DB yet, but potentially to be integrated with MongoDB and/or Postgres (from Supabase).
 
-## Description
+## Built with 🛠️
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
 
-## Installation
+## Getting Started 🚀
+
+- This is a very simple API written with TS, NestJs that has 4 different routes
+  - `/` - Root route
+  - `/api` - Swagger UI for OpenAPI documentation
+  - `/health` - Health check route for application liveness (If the application is alive or not, think of it like a heartbear)
+  - `/ready` - Rediness check for the application (If the application is ready to serve traffic or not)
+- Follow the `ReadME` instructions to get started with the project & figure out what your tasks are
+- If anything is unclear, feel free to make necessary assumtions
+- Proper use of the `The Web` & `AI tools` is `Highly Encouraged` to complete the tasks
+
+### Installation 📦
 
 ```bash
 $ npm install
 ```
 
-## Running the app
+### Run app locally 🏃
 
 ```bash
 # development
@@ -45,7 +38,10 @@ $ npm run start:dev
 $ npm run start:prod
 ```
 
-## Test
+- navigate to http://localhost:3000 to see the root route
+- navigate to http://localhost:3000/api/ to see the Swagger UI for OpenAPI documentation
+
+### Run tests 🧪
 
 ```bash
 # unit tests
@@ -58,16 +54,53 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## Feature based task lists 🛠️
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+### 🟢 `Feature Task-1: Easy`
 
-## Stay in touch
+- `Containerize` the application with `Docker`
+- `What we'll evaluate` :
+  - If you're familiar with Docker & if you can containerize a simple application
+  - If you're not familiar with Docker, how you learn, adapt & implement new technologies
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+### 🟡 `Feature Task-2: Medium`
 
-## License
+- At present this API is not connected with any Database. But whenever a usecase of Data persistence arises, we'll need to connect it with a DB.
+- Your task is to connect with a Database of your choice (between MongoDb, Postgres from Supabase or Google Firestore from firebase) and refactor the `/ready` route to check if the DB is ready to serve traffic or not (database connection is established or not)
+- `Bonus Points` : At present we're skipping the unit tests for `/ready` route since its broken. Fix the unit tests & add some more scenarios once you're done with the above task.
+- Assumptions:
+  - Make any necessary assumptions you need to make for the implementation
+- ` What we'll evaluate` :
+  - What kind of code & best-practice you follow for adding something as simple as database connectivity
+  - How you organize & structure your code
+  - How you go about testability of your code
+
+### 🟠 `Feature Task-3: Hard`
+
+- At this state, this is a boilerplate containerized API with a liveness & readiness check.
+- At this point, we'd like to add more routes to the API, so we can app more functionalities to the API.
+- Your task is to add `User Authentication` functionality to the API. Authentication is the process of verifying who the user is. For that, you'd need to do 3 things:
+  - Add some resource based CRUD (Cretae, Read, Update, Delete) endpoints
+  - Model data for the resources.
+  - Integrate with a BAAS (Backend as a Service) provider for Authentication (Firebase Auth, Supabase Auth) for simplicity
+- `Bonus Points` : If you can use an ORM (Object Relational Mapper) like Mongoose or TypeORM & add unit tests to the new routes you add
+- Assumptions:
+  - Make any necessary assumptions you need to make for the implementation
+- ` What we'll evaluate` :
+  - How you model you data
+  - How you organize & structure your code
+  - How you go about testability of your code
+  - How you think about data flow & scalability of your solution
+  - How you go about venturing uncharted territories, learning from the web & coming up with a solution
+
+## How to submit your solutions ✍️
+
+- Fork this repository & make it private
+- Create a feature branch while working on your solution. For example, if you're working on `Feature Task-1: Easy`, you can create a branch called `feature/task-1`
+- Once you're done, create a pull request to the `main` branch of the repository & Merge it. Don't delete the feature branch on merge as we'll look at the commit history of the feature branch.
+- Make sure its a private and invite `abinhossain@shatez.com` for evaluation.
+- Once the evaluation is complete, we'll reach out to you if you're selected for the next round.
+
+### License
 
 Nest is [MIT licensed](LICENSE).
