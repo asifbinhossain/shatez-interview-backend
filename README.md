@@ -67,6 +67,7 @@ $ npm run test:cov
 
 - At present this API is not connected with any Database. But whenever a usecase of Data persistence arises, we'll need to connect it with a DB.
 - Your task is to connect with a Database of your choice (between MongoDb, Postgres from Supabase or Google Firestore from firebase) and refactor the `/ready` route to check if the DB is ready to serve traffic or not (database connection is established or not)
+- Make a developer documentation for your solution, named `feature2.md`, having how you solved the problem, what you did & why you did it that way & any necessary assumptions you made
 - `Bonus Points` : At present we're skipping the unit tests for `/ready` route since its broken. Fix the unit tests & add some more scenarios once you're done with the above task.
 - Assumptions:
   - Make any necessary assumptions you need to make for the implementation
@@ -83,6 +84,7 @@ $ npm run test:cov
   - Add some resource based CRUD (Cretae, Read, Update, Delete) endpoints
   - Model data for the resources.
   - Integrate with a BAAS (Backend as a Service) provider for Authentication (Firebase Auth, Supabase Auth) for simplicity
+- Make a developer documentation for your solution, named `feature3.md`, having how you solved the problem, what you did & why you did it that way & any necessary assumptions you made
 - `Bonus Points` : If you can use an ORM (Object Relational Mapper) like Mongoose or TypeORM & add unit tests to the new routes you add
 - Assumptions:
   - Make any necessary assumptions you need to make for the implementation
