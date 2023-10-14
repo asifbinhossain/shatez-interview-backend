@@ -1,16 +1,15 @@
-import { Controller, Get } from '@nestjs/common';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
-import { ReadyService } from './ready.service';
-
+import { Controller, Get, Req } from '@nestjs/common';
+import { FirebaseService } from '../Firebase/firebase.service';
 @Controller('ready')
 export class ReadyController {
-  constructor(private readonly readyService: ReadyService) {}
-
-  @ApiTags('ready')
-  @ApiOperation({ summary: 'Application rediness check' })
-  @ApiResponse({ status: 200, description: 'OK' })
+  constructor(private readonly firebaseService: FirebaseService) {}
   @Get()
-  getReady(): string {
-    return this.readyService.getReady();
+  async getReady():Promise<string> {
+    const firebaseApp = this.firebaseService.getFirebaseApp();
+    if (firebaseApp && firebaseApp.database()) {
+      return 'Database connection is ready.';
+    } else {
+      return 'Database connection is not ready yet.';
+    }
   }
 }
